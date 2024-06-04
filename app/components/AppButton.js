@@ -1,8 +1,8 @@
 import React from 'react'
 import { StyleSheet, TouchableHighlight } from 'react-native'
-import colors from '../../config/colors'
+import colors from '../config/colors'
 
-export const StyledButton = ({children, style, ...props}) => {
+const AppButton = ({children, style, ...props}) => {
   return (
     <TouchableHighlight style={[styles.button, style]} {...props}>
       {children}
@@ -13,13 +13,15 @@ export const StyledButton = ({children, style, ...props}) => {
 const styles = StyleSheet.create({
     button: {
     width: "100%",
-    height: 70,
+    height: 60,
     border:  1,
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 5,
+    
   },
     
 })
 
+export default AppButton;
 

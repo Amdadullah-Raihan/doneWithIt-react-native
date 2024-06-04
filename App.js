@@ -2,7 +2,6 @@ import React from 'react';
 import { SafeAreaView, StatusBar, StyleSheet, View } from "react-native";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import colors from './app/config/colors';
-import { StyledText } from './app/components';
 import WelcomeScreen from './app/screens/WelcomeScreen';
 
 function App() {
