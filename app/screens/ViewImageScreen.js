@@ -8,6 +8,7 @@ const ViewImageScreen = () => {
   return (
     <View style={styles.imageContainer}>
       <MaterialCommunityIcons name="email" size={60} color={colors.primary}/>
+   
       <Image
         resizeMode="contain"
         style={styles.image}
