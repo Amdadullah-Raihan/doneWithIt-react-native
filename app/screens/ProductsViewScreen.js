@@ -1,6 +1,7 @@
 import React from 'react';
 import { FlatList, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import Card from '../components/Card';
+import Screen from '../components/Screen';
 
 const mockData = [
   {
@@ -37,7 +38,7 @@ const mockData = [
 
 const ProductsViewScreen = () => {
   return (
-    <SafeAreaView>
+    <Screen>
       <FlatList
         style={styles.productContainer}
         data={mockData}
@@ -51,7 +52,7 @@ const ProductsViewScreen = () => {
           />
         )}
       />
-    </SafeAreaView>
+    </Screen>
   );
 };
 
