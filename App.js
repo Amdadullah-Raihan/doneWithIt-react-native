@@ -3,7 +3,7 @@ import { SafeAreaView, StatusBar, StyleSheet, View } from "react-native";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import colors from './app/config/colors';
 import WelcomeScreen from './app/screens/WelcomeScreen';
-import ProductScreen from './app/screens/ProductScreen';
+import ProductsViewScreen from './app/screens/ProductsViewScreen';
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       {/* <ViewImageScreen /> */}
       {/* <WelcomeScreen />  */}
       {/* <StyledText style={styles.customText}>This is a custom text</StyledText> */}
-      <ProductScreen/>
+      <ProductsViewScreen/>
           
     </SafeAreaView>
   );
@@ -19,7 +19,6 @@ function App() {
 
 const styles = StyleSheet.create({
   appContainer: {
-    flex: 1,
     paddingTop: StatusBar.currentHeight || 20,
     backgroundColor: '#f8f4f4'
   
