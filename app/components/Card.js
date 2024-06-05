@@ -2,6 +2,8 @@ import React from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'
 import AppText from './AppText'
 import colors from '../config/colors'
+import AuthorDetails from './UserProfileCard'
+import UserProfileCard from './UserProfileCard'
 
 const Card = ({title, subTitle, image}) => {
   return (
@@ -11,6 +13,7 @@ const Card = ({title, subTitle, image}) => {
         <AppText style={styles.title}>{title}</AppText>
         <AppText style={styles.subTitle}>{subTitle}</AppText>
       </View>
+      <UserProfileCard name="Amdadul Islam" details="5 Listing Items" imageSource={require("../assets/author.jpg")}/>
     </View>
   )
 }
