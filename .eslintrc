@@ -1,0 +1,24 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+
+  
+  "extends": ["react-native", "prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error"
+  }
+
+
+}
