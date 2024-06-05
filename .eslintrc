@@ -1,10 +1,15 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "node": true
   },
-
-  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-native/all",
+    "prettier"
+  ],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -12,13 +17,15 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-
-  
-  "extends": ["react-native", "prettier"],
-  "plugins": ["prettier"],
+  "plugins": ["react", "react-native", "prettier"],
   "rules": {
-    "prettier/prettier": "error"
+    "prettier/prettier": ["error"],
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
-
-
 }
