@@ -2,6 +2,8 @@ import React from 'react';
 import { FlatList, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import Card from '../components/Card';
 import Screen from '../components/Screen';
+import ListItemSeparator from '../components/ListItemSeparator';
+import ListFooter from '../components/ListFooter';
 
 const mockData = [
   {
@@ -37,20 +39,19 @@ const mockData = [
 ];
 
 const ProductsViewScreen = () => {
+  const renderItem = ({ item }) => (
+    <Card title={item.title} subTitle={item.subTitle} image={item.image} />
+  );
+
   return (
     <Screen>
       <FlatList
         style={styles.productContainer}
         data={mockData}
+        renderItem={renderItem}
         keyExtractor={(data) => data.id.toString()}
-        ItemSeparatorComponent={() => <View style={{ height: 15 }} />}
-        renderItem={({ item }) => (
-          <Card
-            title={item.title}
-            subTitle={item.subTitle}
-            image={item.image}
-          />
-        )}
+        ItemSeparatorComponent={ListItemSeparator}
+        ListFooterComponent={ListFooter}
       />
     </Screen>
   );
@@ -61,6 +62,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingBottom: 15,
     gap: 15,
+  },
+  footer: {
+    height: 15,
   },
 });
 
