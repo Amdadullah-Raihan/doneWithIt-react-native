@@ -17,6 +17,7 @@ const Card = ({ title = '', subTitle = '', image = '', style = {} }) => {
         name="Amdadul Islam"
         details="5 Listing Items"
         imageSource={require('../assets/author.jpg')}
+        onPress={() => alert('User profile clicked')}
       />
     </View>
   );

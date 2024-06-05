@@ -1,17 +1,25 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TouchableNativeFeedback,
+  View,
+} from 'react-native';
 import AppText from './AppText';
 import colors from '../config/colors';
 
-const UserProfileCard = ({ imageSource, name, details }) => {
+const UserProfileCard = ({ imageSource, name, details, onPress }) => {
   return (
-    <View style={styles.container}>
-      <Image style={styles.image} source={imageSource} />
-      <View style={styles.textContainer}>
-        <AppText style={styles.name}>{name}</AppText>
-        <AppText style={styles.details}>{details}</AppText>
+    <TouchableNativeFeedback onPress={onPress}>
+      <View style={styles.container}>
+        <Image style={styles.image} source={imageSource} />
+        <View style={styles.textContainer}>
+          <AppText style={styles.name}>{name}</AppText>
+          <AppText style={styles.details}>{details}</AppText>
+        </View>
       </View>
-    </View>
+    </TouchableNativeFeedback>
   );
 };
 
