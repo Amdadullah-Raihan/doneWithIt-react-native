@@ -6,6 +6,7 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import colors from './app/config/colors';
 import WelcomeScreen from './app/screens/WelcomeScreen';
@@ -15,12 +16,14 @@ import MessagesViewScreen from './app/screens/MessagesViewScreen';
 
 function App() {
   return (
-    <SafeAreaView style={styles.appContainer}>
-      {/* <ViewImageScreen /> */}
-      {/* <WelcomeScreen />  */}
-      {/* <ProductsViewScreen /> */}
-      <MessagesViewScreen />
-    </SafeAreaView>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <SafeAreaView style={styles.appContainer}>
+        {/* <ViewImageScreen /> */}
+        {/* <WelcomeScreen />  */}
+        {/* <ProductsViewScreen /> */}
+        <MessagesViewScreen />
+      </SafeAreaView>
+    </GestureHandlerRootView>
   );
 }
 
