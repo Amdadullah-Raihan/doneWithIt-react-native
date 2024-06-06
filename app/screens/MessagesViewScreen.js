@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, FlatList, RefreshControl } from 'react-native';
-import AppText from '../components/AppText';
-import UserProfileCard from '../components/UserProfileCard'; // Assuming this path is correct
+import ListItem from '../components/ListItem'; // Assuming this path is correct
+import ListItemDeleteAction from '../components/ListItemDeleteAction';
 
 const mockUserProfiles = [
   {
@@ -57,16 +57,25 @@ const MessagesViewScreen = () => {
     }, 2000);
   };
 
+  const handleDelete = (id) => {
+    setProfiles((prevProfiles) =>
+      prevProfiles.filter((profile) => profile.id !== id),
+    );
+  };
+
   return (
     <FlatList
       data={profiles}
       keyExtractor={(item) => item.id.toString()}
       renderItem={({ item }) => (
-        <UserProfileCard
+        <ListItem
           imageSource={item.imageSource}
           name={item.name}
           details={item.details}
           onPress={() => console.log(`Pressed ${item.name}`)}
+          renderRightActions={() => (
+            <ListItemDeleteAction onPress={() => handleDelete(item.id)} />
+          )}
         />
       )}
       refreshControl={
@@ -79,7 +88,7 @@ const MessagesViewScreen = () => {
 
 const styles = StyleSheet.create({
   messagesContainer: {
-    padding: 10,
+    flex: 1,
   },
 });
 

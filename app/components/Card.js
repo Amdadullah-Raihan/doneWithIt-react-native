@@ -4,8 +4,8 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 import AppText from './AppText';
 import colors from '../config/colors';
-import AuthorDetails from './UserProfileCard';
-import UserProfileCard from './UserProfileCard';
+import AuthorDetails from './ListItem';
+import ListItem from './ListItem';
 
 const Card = ({
   title = 'Title',
@@ -27,7 +27,7 @@ const Card = ({
         <AppText style={styles.title}>{title}</AppText>
         <AppText style={styles.subTitle}>{subTitle}</AppText>
       </View>
-      <UserProfileCard
+      <ListItem
         name="Amdadul Islam"
         details="5 Listing Items"
         imageSource={require('../assets/author.jpg')}
