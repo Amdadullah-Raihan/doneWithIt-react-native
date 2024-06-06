@@ -7,10 +7,15 @@ import ListFooter from '../components/ListFooter';
 
 const mockData = [
   {
-    id: '1',
+    id: '0',
     title: 'Red Jacket For Sale',
     subTitle: '$100',
     image: require('../assets/jacket.jpg'),
+  },
+  {
+    id: '1',
+    title: 'Red Jacket For Sale',
+    subTitle: '$100',
   },
   {
     id: '2',

@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
+
 import AppText from './AppText';
 import colors from '../config/colors';
 import AuthorDetails from './UserProfileCard';
@@ -11,9 +13,18 @@ const Card = ({
   image = '',
   style = {},
 }) => {
+  const [itemWidth, setItemWidth] = useState(null);
+  console.log('width', itemWidth);
   return (
     <View style={styles.cardContainer}>
-      <Image source={image} style={[styles.image, style]} />
+      {!image ? (
+        <View style={styles.imageNotFound}>
+          <MaterialIcons name="not-interested" size={24} color={colors.gray} />
+          <Text style={{ color: colors.gray }}>Image not found</Text>
+        </View>
+      ) : (
+        <Image source={image} style={[styles.image, style]} />
+      )}
       <View style={styles.detailsContainer}>
         <AppText style={styles.title}>{title}</AppText>
         <AppText style={styles.subTitle}>{subTitle}</AppText>
@@ -37,6 +48,14 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     height: 250,
+  },
+  imageNotFound: {
+    height: 250,
+    width: '100%',
+    backgroundColor: 'lightgray',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1,
   },
   detailsContainer: {
     marginTop: 15,
