@@ -5,7 +5,12 @@ import colors from '../config/colors';
 import AuthorDetails from './UserProfileCard';
 import UserProfileCard from './UserProfileCard';
 
-const Card = ({ title = '', subTitle = '', image = '', style = {} }) => {
+const Card = ({
+  title = 'Title',
+  subTitle = 'Sub Title',
+  image = '',
+  style = {},
+}) => {
   return (
     <View style={styles.cardContainer}>
       <Image source={image} style={[styles.image, style]} />
