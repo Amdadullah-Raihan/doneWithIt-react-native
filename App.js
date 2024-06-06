@@ -11,20 +11,22 @@ import colors from './app/config/colors';
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import ProductsViewScreen from './app/screens/ProductsViewScreen';
 import ViewImageScreen from './app/screens/ViewImageScreen';
+import MessagesViewScreen from './app/screens/MessagesViewScreen';
 
 function App() {
   return (
     <SafeAreaView style={styles.appContainer}>
       {/* <ViewImageScreen /> */}
       {/* <WelcomeScreen />  */}
-      {/* <StyledText style={styles.customText}>This is a custom text</StyledText> */}
-      <ProductsViewScreen />
+      {/* <ProductsViewScreen /> */}
+      <MessagesViewScreen />
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   appContainer: {
+    flex: 1,
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     backgroundColor: '#f8f4f4',
   },
