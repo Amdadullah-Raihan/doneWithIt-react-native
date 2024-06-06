@@ -1,5 +1,5 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, View, FlatList, RefreshControl } from 'react-native';
 import AppText from '../components/AppText';
 import UserProfileCard from '../components/UserProfileCard'; // Assuming this path is correct
 
@@ -37,24 +37,48 @@ const mockUserProfiles = [
 ];
 
 const MessagesViewScreen = () => {
+  const [refreshing, setRefreshing] = useState(false);
+  const [profiles, setProfiles] = useState(mockUserProfiles);
+
+  const onRefresh = () => {
+    setRefreshing(true);
+    // Simulate fetching new data and updating the state
+    setTimeout(() => {
+      setProfiles([
+        ...mockUserProfiles,
+        {
+          id: 6,
+          name: 'New User',
+          details: 'New Role',
+          imageSource: require('../assets/author.jpg'),
+        },
+      ]);
+      setRefreshing(false);
+    }, 2000);
+  };
+
   return (
-    <View style={styles.messagesContainer}>
-      {mockUserProfiles.map((profile) => (
+    <FlatList
+      data={profiles}
+      keyExtractor={(item) => item.id.toString()}
+      renderItem={({ item }) => (
         <UserProfileCard
-          key={profile.id}
-          imageSource={profile.imageSource}
-          name={profile.name}
-          details={profile.details}
-          onPress={() => console.log(`Pressed ${profile.name}`)}
+          imageSource={item.imageSource}
+          name={item.name}
+          details={item.details}
+          onPress={() => console.log(`Pressed ${item.name}`)}
         />
-      ))}
-    </View>
+      )}
+      refreshControl={
+        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+      }
+      contentContainerStyle={styles.messagesContainer}
+    />
   );
 };
 
 const styles = StyleSheet.create({
   messagesContainer: {
-    flex: 1,
     padding: 10,
   },
 });
