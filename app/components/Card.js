@@ -13,8 +13,6 @@ const Card = ({
   image = '',
   style = {},
 }) => {
-  const [itemWidth, setItemWidth] = useState(null);
-  console.log('width', itemWidth);
   return (
     <View style={styles.cardContainer}>
       {!image ? (
